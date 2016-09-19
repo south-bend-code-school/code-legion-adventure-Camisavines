@@ -70,7 +70,7 @@
     {
         case "welcome":
           $("#game").load( "screens/intro.html", function() {
-            $("#playername").append(username);
+          $("#playername").append(username);
             $("#btn1").unbind();
             $("#btn2").unbind();
             $("#btn3").unbind();
@@ -80,6 +80,8 @@
             $("#btn2").html("Look under the mat");
             $("#btn3").click(function() {setGameState("dead")});
             $("#btn3").html("Check the mail");
+            $("#btn4").click(function() {setGameState("house")})
+            $("#btn4").html ("Knock on the door");
           } );
           break;
 
@@ -94,8 +96,11 @@
             $("#btn2").html("Go into kitchen");
             $("#btn3").click(function() {setGameState("welcome")});
             $("#btn3").html("Go outside");
+            $("#btn4").click(function() {setGameState("livingroom")});
+            $("#btn4").html("Go into the livingroom");
           } );
           break;
+
         case "dead":
           $("#game").load( "screens/dead.html", function() {
             $("#playername").append(username);
@@ -108,8 +113,29 @@
             $("#btn2").html("Restart");
             $("#btn3").click(function() {setGameState("welcome")});
             $("#btn3").html("Restart");
+            $("#btn4").click(function() {setGameState("welcome")});
+            $("#btn4").html("Restart");
           } );
           break;
+
+          case "livingroom":
+            $("#game").load( "screens/livingroom.html", function() {
+              $("playername").append(username);
+              $("#btn1").unbind();
+              $("#btn2").unbind();
+              $("#btn3").unbind();
+              $("#btn4").unbind();
+              $("#btn1").click(function() {setGameState("dead")});
+              $("#btn1").html("Grab the knife")
+              $("#btn2").click(function() {setGameState("bat")});
+              $("#btn2").html("Grab the gun")
+              $("#btn3").click(function() {setGameState("dead")});
+              $("#btn3").html("Read the paper")
+              $("#btn4").click(function() {setGameState("dead")});
+              $("#btn4").html("Leave the house")
+            })
+
+            break;
 
     }
   }
