@@ -74,19 +74,17 @@
             $("#btn1").unbind();
             $("#btn2").unbind();
             $("#btn3").unbind();
-            $("#btn1").click(function() {setGameState("house")});
-            $("#btn1").html("Break into the house");
-            $("#btn2").click(function() {setGameState("dead")});
-            $("#btn2").html("Look under the mat");
-            $("#btn3").click(function() {setGameState("dead")});
-            $("#btn3").html("Check the mail");
-            $("#btn4").click(function() {setGameState("house")})
-            $("#btn4").html ("Knock on the door");
+            $("#btn1").click(function() {setGameState("bathroom")});
+            $("#btn1").html("Wash your hands");
+            $("#btn2").click(function() {setGameState("outside")});
+            $("#btn2").html("Leave the house");
+            $("#btn3").click(function() {setGameState("welcome")});
+            $("#btn3").html("Go back to sleep");
           } );
           break;
 
-        case "house":
-          $("#game").load( "screens/house.html", function() {
+        case "bathroom":
+          $("#game").load( "screens/bathroom.html", function() {
             $("#btn1").unbind();
             $("#btn2").unbind();
             $("#btn3").unbind();
@@ -96,8 +94,6 @@
             $("#btn2").html("Go into kitchen");
             $("#btn3").click(function() {setGameState("welcome")});
             $("#btn3").html("Go outside");
-            $("#btn4").click(function() {setGameState("livingroom")});
-            $("#btn4").html("Go into the livingroom");
           } );
           break;
 
@@ -113,13 +109,11 @@
             $("#btn2").html("Restart");
             $("#btn3").click(function() {setGameState("welcome")});
             $("#btn3").html("Restart");
-            $("#btn4").click(function() {setGameState("welcome")});
-            $("#btn4").html("Restart");
           } );
           break;
 
-          case "livingroom":
-            $("#game").load( "screens/livingroom.html", function() {
+          case "outside":
+            $("#game").load( "screens/outside.html", function() {
               $("playername").append(username);
               $("#btn1").unbind();
               $("#btn2").unbind();
@@ -127,12 +121,10 @@
               $("#btn4").unbind();
               $("#btn1").click(function() {setGameState("dead")});
               $("#btn1").html("Grab the knife")
-              $("#btn2").click(function() {setGameState("bat")});
+              $("#btn2").click(function() {setGameState("dead")});
               $("#btn2").html("Grab the gun")
               $("#btn3").click(function() {setGameState("dead")});
               $("#btn3").html("Read the paper")
-              $("#btn4").click(function() {setGameState("dead")});
-              $("#btn4").html("Leave the house")
             })
 
             break;
